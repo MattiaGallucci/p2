@@ -44,7 +44,7 @@
 		</div>
 		<div class="tableRow">
 			<p>Quantità:</p>
-			<p><input type="number" name="quantità" value="" required></p>
+			<p><input type="number" name="quantita" value="" required></p>
 		</div>
 		<div class="tableRow">
 			<p>Immagine:</p>
