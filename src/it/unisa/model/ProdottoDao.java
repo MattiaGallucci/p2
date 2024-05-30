@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -146,53 +148,61 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 
 	@Override
 	public synchronized ArrayList<ProdottoBean> doRetrieveAll(String order) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+	    Connection connection = null;
+	    PreparedStatement preparedStatement = null;
 
-		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
+	    ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
 
-		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME;
+	    // Elenco delle colonne valide per l'ordinamento
+	    List<String> validColumns = Arrays.asList(
+	            "ID_PRODOTTO", "NOME", "PIATTAFORMA", "DESCRIZIONE", 
+	            "PREZZO", "QUANTITA", "GENERE", "DATA_USCITA", 
+	            "IN_VENDITA", "IVA", "IMMAGINE", "DESCRIZIONE_DETTAGLIATA"
+	        );
+	    // Validazione del parametro 'order'
+	    if (order == null || !validColumns.contains(order.toUpperCase())) {
+	        order = "NOME"; // Colonna predefinita
+	    }
 
-		if (order != null && !order.equals("")) {
-			selectSQL += " ORDER BY " + order;
-		}
+	    String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME + " ORDER BY " + order;
 
-		try {
-			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(selectSQL);
+	    try {
+	        connection = ds.getConnection();
+	        preparedStatement = connection.prepareStatement(selectSQL);
 
-			ResultSet rs = preparedStatement.executeQuery();
+	        ResultSet rs = preparedStatement.executeQuery();
 
-			while (rs.next()) {
-				ProdottoBean bean = new ProdottoBean();
+	        while (rs.next()) {
+	            ProdottoBean bean = new ProdottoBean();
 
-				bean.setIdProdotto(rs.getInt("ID_PRODOTTO"));
-				bean.setNome(rs.getString("NOME"));
-				bean.setDescrizione(rs.getString("DESCRIZIONE"));
-				bean.setPrezzo(rs.getDouble("PREZZO"));
-				bean.setQuantita(rs.getInt("QUANTITA"));
-				bean.setPiattaforma(rs.getString("PIATTAFORMA"));
-				bean.setIva(rs.getString("IVA"));
-				bean.setDataUscita(rs.getString("DATA_USCITA"));
-				bean.setInVendita(rs.getBoolean("IN_VENDITA"));
-				bean.setImmagine(rs.getString("IMMAGINE"));
-				bean.setGenere(rs.getString("GENERE"));
-				bean.setDescrizioneDettagliata(rs.getString("DESCRIZIONE_DETTAGLIATA"));
+	            bean.setIdProdotto(rs.getInt("ID_PRODOTTO"));
+	            bean.setNome(rs.getString("NOME"));
+	            bean.setDescrizione(rs.getString("DESCRIZIONE"));
+	            bean.setPrezzo(rs.getDouble("PREZZO"));
+	            bean.setQuantita(rs.getInt("QUANTITA"));
+	            bean.setPiattaforma(rs.getString("PIATTAFORMA"));
+	            bean.setIva(rs.getString("IVA"));
+	            bean.setDataUscita(rs.getString("DATA_USCITA"));
+	            bean.setInVendita(rs.getBoolean("IN_VENDITA"));
+	            bean.setImmagine(rs.getString("IMMAGINE"));
+	            bean.setGenere(rs.getString("GENERE"));
+	            bean.setDescrizioneDettagliata(rs.getString("DESCRIZIONE_DETTAGLIATA"));
 
-				products.add(bean);
-			}
+	            products.add(bean);
+	        }
 
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		return products;
+	    } finally {
+	        try {
+	            if (preparedStatement != null)
+	                preparedStatement.close();
+	        } finally {
+	            if (connection != null)
+	                connection.close();
+	        }
+	    }
+	    return products;
 	}
+
 	
 	@Override
 	public synchronized void doUpdateQnt(int id, int qnt) throws SQLException {
