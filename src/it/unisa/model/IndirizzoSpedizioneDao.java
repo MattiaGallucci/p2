@@ -48,7 +48,7 @@ public class IndirizzoSpedizioneDao implements IndirizzoSpedizioneDaoInterfaccia
 			preparedStatement.setString(4, bean.getProvincia());
 			preparedStatement.setString(5, bean.getNome());
 			preparedStatement.setString(6, bean.getCognome());
-			preparedStatement.setString(7, bean.getCittà());
+			preparedStatement.setString(7, bean.getCitta());
 
 
 			preparedStatement.executeUpdate();
@@ -91,7 +91,7 @@ public class IndirizzoSpedizioneDao implements IndirizzoSpedizioneDaoInterfaccia
 				bean.setProvincia(rs.getString("PROVINCIA"));
 				bean.setNome(rs.getString("NOME"));
 				bean.setCognome(rs.getString("COGNOME"));
-				bean.setCittà(rs.getString("CITTA"));
+				bean.setCitta(rs.getString("CITTA"));
 				bean.setIndirizzo(rs.getString("INDIRIZZO"));
 				bean.setCap(rs.getString("CAP"));
 

@@ -45,7 +45,7 @@
 		<tr>
 			<td><%=bean.getNome()%></td>
 			<td><%=bean.getPiattaforma()%></td>
-			<td><%=bean.getQuantità()%></td>
+			<td><%=bean.getQuantita()%></td>
 			<td><a href="ModificaProdotto.jsp?prodotto=<%=bean.getIdProdotto()%>"><button>Modifica</button></a></td>
 		</tr>
 

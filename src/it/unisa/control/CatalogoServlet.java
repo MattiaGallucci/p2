@@ -35,7 +35,7 @@ public class CatalogoServlet extends HttpServlet {
 					bean.setDescrizione(request.getParameter("descrizione"));
 					bean.setIva(request.getParameter("iva"));
 					bean.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-					bean.setQuantità(Integer.parseInt(request.getParameter("quantità")));
+					bean.setQuantita(Integer.parseInt(request.getParameter("quantita")));
 					bean.setPiattaforma(request.getParameter("piattaforma"));
 					bean.setGenere(request.getParameter("genere"));
 					bean.setImmagine(request.getParameter("img"));
@@ -52,7 +52,7 @@ public class CatalogoServlet extends HttpServlet {
 					bean.setDescrizione(request.getParameter("descrizione"));
 					bean.setIva(request.getParameter("iva"));
 					bean.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-					bean.setQuantità(Integer.parseInt(request.getParameter("quantità")));
+					bean.setQuantita(Integer.parseInt(request.getParameter("quantita")));
 					bean.setPiattaforma(request.getParameter("piattaforma"));
 					bean.setGenere(request.getParameter("genere"));
 					bean.setImmagine(request.getParameter("img"));

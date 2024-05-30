@@ -45,7 +45,7 @@ public class AccountServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String telefono = request.getParameter("tel");
-		String città = request.getParameter("città");
+		String citta = request.getParameter("citta");
 		String ind = request.getParameter("ind");
 		String cap = request.getParameter("cap");
 		String prov = request.getParameter("prov");	
@@ -67,7 +67,7 @@ public class AccountServlet extends HttpServlet {
 						 sped.setTelefono(telefono);
 						 sped.setCap(cap);
 						 sped.setProvincia(prov);
-						 sped.setCittà(città);
+						 sped.setCitta(citta);
 						 daoSped.doSave(sped);
 						 
 					}

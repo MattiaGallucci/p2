@@ -47,7 +47,7 @@ public class CheckoutServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String telefono = request.getParameter("tel");
-		String città = request.getParameter("città");
+		String citta = request.getParameter("citta");
 		String ind = request.getParameter("ind");
 		String cap = request.getParameter("cap");
 		String prov = request.getParameter("prov");	
@@ -66,7 +66,7 @@ public class CheckoutServlet extends HttpServlet {
 				 sped.setTelefono(telefono);
 				 sped.setCap(cap);
 				 sped.setProvincia(prov);
-				 sped.setCittà(città);
+				 sped.setCitta(citta);
 				 daoSped.doSave(sped);
 			 }
 			  
@@ -92,9 +92,9 @@ public class CheckoutServlet extends HttpServlet {
 			
 			
 			for(int i = 0; i < cart.size() ; i++) {
-				int qnt = cart.get(i).getQuantitàCarrello();
+				int qnt = cart.get(i).getQuantitaCarrello();
 				ProdottoBean prod = cart.get(i).getProdotto();
-				int newQnt = prod.getQuantità() - qnt;
+				int newQnt = prod.getQuantita() - qnt;
 		
 				daoProd.doUpdateQnt(cart.get(i).getId(), newQnt);
 				
@@ -102,7 +102,7 @@ public class CheckoutServlet extends HttpServlet {
 				comp.setIdProdotto(cart.get(i).getId());
 				comp.setPrezzoTotale(cart.get(i).getTotalPrice());
 				comp.setIva(cart.get(i).getProdotto().getIva());
-				comp.setQuantità(cart.get(i).getQuantitàCarrello());
+				comp.setQuantita(cart.get(i).getQuantitaCarrello());
 				daoComp.doSave(comp);
 			}
 			

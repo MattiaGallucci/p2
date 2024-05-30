@@ -77,7 +77,7 @@
 					<li>Indirizzo: <%=spedizione.getIndirizzo() %></li>
 					<li>Cap: <%=spedizione.getCap() %></li>
 					<li>Provincia: <%=spedizione.getProvincia() %></li>
-					<li>Città: <%=spedizione.getCittà() %></li>
+					<li>Città: <%=spedizione.getCitta() %></li>
 					<li><a href="account?action=removeS"><button>Rimuovi</button></a></li>
 				</ul>
 				

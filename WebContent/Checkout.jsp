@@ -52,7 +52,7 @@
 		</div>
 		<div class="tableRow">
 			<p>Città:</p>
-			<p><input type="text" name="città" value="<%= spedizione.getCittà() %>" required/></p>
+			<p><input type="text" name="città" value="<%= spedizione.getCitta() %>" required/></p>
 		</div>
 		
 		<%}else{ %> 

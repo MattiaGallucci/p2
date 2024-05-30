@@ -3,6 +3,8 @@ package it.unisa.control;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,14 +22,37 @@ import it.unisa.model.ProdottoDao;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	// Elenco delle pagine valide
+    private static final List<String> validPages = Arrays.asList(
+        "Account.jsp",
+        "Carrello.jsp",
+        "Catalogo.jsp",
+        "Checkout.jsp",
+        "ComposizioneOrdine.jsp",
+        "Dettagli.jsp",
+        "Home.jsp",
+        "Login.jsp",
+        "MieiOrdini.jsp",
+        "Ps4.jsp",
+        "Ps5.jsp",
+        "Registrazione.jsp",
+        "Switch.jsp",
+        "XboxOne.jsp",
+        "XboxSeries.jsp"
+    );
        
- 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ProdottoDao dao = new ProdottoDao();
 		
 		ArrayList<ArrayList<ProdottoBean>> categorie = new ArrayList<>();
 		String redirectedPage = request.getParameter("page");
+		
+		// Validazione del parametro 'page'
+        if (redirectedPage == null || !validPages.contains(redirectedPage)) {
+            redirectedPage = "Home.jsp"; // Pagina predefinita
+        }
 		
 		try {
 			ArrayList<ProdottoBean> PS5 = dao.doRetrieveByPiattaforma("PlayStation 5");

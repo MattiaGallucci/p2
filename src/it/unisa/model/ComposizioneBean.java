@@ -26,12 +26,12 @@ public class ComposizioneBean implements Serializable {
 		this.idProdotto = idProdotto;
 	}
 	 
-	 public int getQuantità() {
-		return quantità;
+	 public int getQuantita() {
+		return quantita;
 	}
 	 
-	 public void setQuantità(int quantità) {
-		this.quantità = quantità;
+	 public void setQuantita(int quantita) {
+		this.quantita = quantita;
 	}
 	 
 	 
@@ -53,7 +53,7 @@ public class ComposizioneBean implements Serializable {
 	 
 	 private int idOrdine;
 	 private int idProdotto;
-	 private int quantità;
+	 private int quantita;
 	 private String iva;
 	 private double prezzoTotale;
 }

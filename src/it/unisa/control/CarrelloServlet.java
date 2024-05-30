@@ -30,7 +30,7 @@ public class CarrelloServlet extends HttpServlet{
 		}
 		
 		String action = request.getParameter("action");
-		String quantit‡ = request.getParameter("qnt");
+		String quantita = request.getParameter("qnt");
 		String redirectedPage = request.getParameter("page");
 		
 		
@@ -45,10 +45,10 @@ public class CarrelloServlet extends HttpServlet{
 					
 				}
 			}
-				if(quantit‡!=null) {
+				if(quantita!=null) {
 					int id = Integer.parseInt(request.getParameter("Id"));
 					ItemCarrello item = cart.getItem(id);
-					item.setQuantit‡Carrello(Integer.parseInt(quantit‡));
+					item.setQuantitaCarrello(Integer.parseInt(quantita));
 					
 				}
 			

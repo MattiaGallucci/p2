@@ -48,7 +48,7 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 			preparedStatement.setString(2, product.getPiattaforma());
 			preparedStatement.setString(3, product.getDescrizione());
 			preparedStatement.setDouble(4, product.getPrezzo());
-			preparedStatement.setInt(5, product.getQuantità());
+			preparedStatement.setInt(5, product.getQuantita());
 			preparedStatement.setString(6,product.getGenere());
 			preparedStatement.setString(7, product.getDataUscita());
 			preparedStatement.setBoolean(8, product.isInVendita());
@@ -92,7 +92,7 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 				bean.setNome(rs.getString("NOME"));
 				bean.setDescrizione(rs.getString("DESCRIZIONE"));
 				bean.setPrezzo(rs.getDouble("PREZZO"));
-				bean.setQuantità(rs.getInt("QUANTITA"));
+				bean.setQuantita(rs.getInt("QUANTITA"));
 				bean.setPiattaforma(rs.getString("PIATTAFORMA"));
 				bean.setIva(rs.getString("IVA"));
 				bean.setDataUscita(rs.getString("DATA_USCITA"));
@@ -170,7 +170,7 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 				bean.setNome(rs.getString("NOME"));
 				bean.setDescrizione(rs.getString("DESCRIZIONE"));
 				bean.setPrezzo(rs.getDouble("PREZZO"));
-				bean.setQuantità(rs.getInt("QUANTITA"));
+				bean.setQuantita(rs.getInt("QUANTITA"));
 				bean.setPiattaforma(rs.getString("PIATTAFORMA"));
 				bean.setIva(rs.getString("IVA"));
 				bean.setDataUscita(rs.getString("DATA_USCITA"));
@@ -241,7 +241,7 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(updateSQL);
 			preparedStatement.setString(1, product.getNome());
-			preparedStatement.setInt(2, product.getQuantità());
+			preparedStatement.setInt(2, product.getQuantita());
 			preparedStatement.setString(3, product.getPiattaforma());
 			preparedStatement.setString(4, product.getDescrizione());
 			preparedStatement.setDouble(5, product.getPrezzo());
@@ -291,7 +291,7 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 				bean.setNome(rs.getString("NOME"));
 				bean.setDescrizione(rs.getString("DESCRIZIONE"));
 				bean.setPrezzo(rs.getDouble("PREZZO"));
-				bean.setQuantità(rs.getInt("QUANTITA"));
+				bean.setQuantita(rs.getInt("QUANTITA"));
 				bean.setPiattaforma(rs.getString("PIATTAFORMA"));
 				bean.setIva(rs.getString("IVA"));
 				bean.setDataUscita(rs.getString("DATA_USCITA"));
